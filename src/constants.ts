@@ -1,4 +1,4 @@
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@miljan9602/sdk-core'
 import JSBI from 'jsbi'
 
 /**

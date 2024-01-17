@@ -1,5 +1,5 @@
-import { Token } from '@uniswap/sdk-core'
-import { computePairAddress } from './pair'
+import { Token } from '@miljan9602/sdk-core'
+import { computePairAddress, CurrencyAmount, Pair } from './pair'
 
 describe('computePairAddress', () => {
   it('should correctly compute the pool address', () => {
@@ -46,29 +46,25 @@ describe('computePairAddress', () => {
 
     expect(result).toEqual('0xFd4f4869F809eb5C91B91C63EAE7f16d77b37FCc')
   })
-//
-//   it('should give same result regardless of token order', () => {
-//     const USDC = new Token(1, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
-//     const DAI = new Token(1, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
-//     let tokenA = USDC
-//     let tokenB = DAI
-//     const resultA = computePairAddress({
-//       factoryAddress: '0x1111111111111111111111111111111111111111',
-//       tokenA,
-//       tokenB
-//     })
-//
-//     tokenA = DAI
-//     tokenB = USDC
-//     const resultB = computePairAddress({
-//       factoryAddress: '0x1111111111111111111111111111111111111111',
-//       tokenA,
-//       tokenB
-//     })
-//
-//     expect(resultA).toEqual(resultB)
-//   })
-// })
+
+  it('should give same result regardless of token order', () => {
+    const WAVAX = new Token(43114, '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 18, 'WAVAX', 'Wrapped AVAX')
+    const USDT = new Token(43114, '0xc7198437980c041c805a1edcba50c1ce5db95118', 6, 'USDT.e', 'Tether USD')
+    let tokenA = WAVAX
+    let tokenB = USDT
+    const resultA = computePairAddress({
+      factoryAddress: '0xfd4f4869f809eb5c91b91c63eae7f16d77b37fcc',
+      tokenA,
+      tokenB
+    })
+
+    const pair = new Pair(
+        CurrencyAmount.fromRawAmount(tokenA, '10000'),
+        CurrencyAmount.fromRawAmount(tokenB, '10000')
+      )
+
+    expect(resultA).toEqual(pair.getInputAmount())
+  })
 //
 // describe('Pair', () => {
 //   const USDC = new Token(1, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
