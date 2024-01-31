@@ -55,6 +55,7 @@ export class Pair {
       'UNI-V2',
       'Uniswap V2'
     )
+
     this.tokenAmounts = tokenAmounts as [CurrencyAmount<Token>, CurrencyAmount<Token>]
   }
 
