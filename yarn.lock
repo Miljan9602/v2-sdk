@@ -1151,10 +1151,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@miljan9602/sdk-core@^4.0.10":
-  version "4.0.10"
-  resolved "https://registry.npmjs.org/@miljan9602/sdk-core/-/sdk-core-4.0.10.tgz"
-  integrity sha512-oX77fx2oRqjoBzUgW2Jyp0+d7jC5LMFu/7G9Gr3gtU7YisrGmuo19b7CSGfBED5ncIZ7URAYvoWIrrz0a4W89w==
+"@miljan9602/sdk-core@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.npmjs.org/@miljan9602/sdk-core/-/sdk-core-7.0.2.tgz"
+  integrity sha512-VaYUtI6zKGes2F9mSyE4uIckbGZqIZg6HbqLylWKm9LLvWWtH/+q+zBR3N6pJ/ytWn6IfCklVUjY5KSD+FPs+A==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     big.js "^5.2.2"
